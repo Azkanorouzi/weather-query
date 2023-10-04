@@ -42,7 +42,7 @@ main {
   width: 100vw;
   height: 90vh;
   max-height: 100vh;
-  position: absolute;
+
   place-content: center;
 }
 .navbar {
