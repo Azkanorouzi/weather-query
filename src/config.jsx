@@ -1,10 +1,13 @@
 // Weather api
 const weatherApiKey = 'c4c5cd74351c4335bfa125028232608'
-export const weatherApiUrl = `http://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=`
+export const weatherApiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=`
 //&q=London&aqi=no
 // Gify
-const gifyApiKey = 'TjGQNv41vSnPPc5fuA9GweXkAPChDl4J'
-export const gifyApiUrl = `https://api.giphy.com/v1/gifs/random?api_key=${gifyApiKey}&tag=`
+const giphyApiKey = 'TjGQNv41vSnPPc5fuA9GweXkAPChDl4J'
+export const giphyApiUrl = `https://api.giphy.com/v1/gifs/random?api_key=${giphyApiKey}&tag=`
+export const forecastDays = '10'
+// Country
+export const countryApiUrl = 'https://restcountries.com/v3.1/name/'
 //hot+weather&rating=g
 export function CurLocationError() {
   return (

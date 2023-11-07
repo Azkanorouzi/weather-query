@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Navbar from './Navbar'
 import Spinner from './Spinner'
 import { CurLocationError } from '../config'
-import { getWeatherData, getCurLocation } from '../helpers'
+import { getWeatherData, getCurLocation, isHot } from '../helpers'
 import Content from './Content'
 
 function Main() {
@@ -24,8 +24,13 @@ function Main() {
       setIsFetchingWeather(false)
     }
   }
+
   return (
-    <main className="background-initial">
+    <main
+      className={`background-initial background-${isHot(
+        weatherData?.weather?.current?.temp_c
+      )}`}
+    >
       <Navbar setLocation={setLocation} fetchWeatherData={fetchWeatherData} />
       {location === 'err' ? (
         <CurLocationError />

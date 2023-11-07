@@ -1,8 +1,25 @@
-# React + Vite
+# Weather-query
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+demo: [https://react-cvbuilder.netlify.app/](https://react-cvbuilder.netlify.app/)
 
-Currently, two official plugins are available:
+Hey there this is me AZKA 🙋‍♂️
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+and this is React Weather query which You can use it to check weather forecast and current weather conditions, it's also reactive to weather result depending on current weather background color changes:).
+
+![Screenshot1.png](screenshots/screenshot1.png)
+![Screenshot2.png](screenshots/screenshot2.png)
+
+✏️ How to use it:
+
+- Just search for a country/city
+- If background gradient is red/yellow it's hot, if blue/cyan it's cold and if it's green/yellow it's Temperate
+
+🔴 Things i learned:
+1- React basics
+2- Error handling with useEffect
+
+🤔 further improvements:
+
+- Media queries for mobile devices
+- A nicer format for weather forecast
+- Better component structure

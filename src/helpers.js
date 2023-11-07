@@ -1,32 +1,35 @@
-import { weatherApiUrl, gifyApiUrl } from './config'
+import { weatherApiUrl, giphyApiUrl, forecastDays } from './config'
 export function isHot(temp = 10, cf = 'c') {
+  if (!temp) return 'initial'
   if (cf === 'c') {
-    return temp < 6 ? 'cold' : temp < 26 ? 'good' : 'hot'
+    return temp < 7 ? 'cold' : temp < 26 ? 'mid' : 'hot'
   }
   if (cf === 'f') {
-    return temp < 42.8 ? 'cold' : temp < 78.8 ? 'good' : 'hot'
+    return temp < 42.8 ? 'cold' : temp < 78.8 ? 'mid' : 'hot'
   }
   return false
 }
 // Timeout promise
-const timeoutPromise = () =>
+export const timeoutPromise = (setter) =>
   new Promise((_, reject) => {
     setTimeout(() => {
-      reject('Timeout: Request took too long to complete')
+      reject(new Error('Timeout: Request took too long to complete'))
+      if (setter) setter(() => false)
     }, 10000)
   })
 
 export async function getWeatherData(searchedTerm) {
   try {
     const res = await Promise.race([
-      fetch(`${weatherApiUrl}${searchedTerm}&aqi=no`),
+      fetch(
+        `${weatherApiUrl}${searchedTerm}&days=${forecastDays}&aqi=no&alerts=no`
+      ),
       timeoutPromise(),
     ])
     if (res.status == 400)
       throw new Error('search term is not a valid location')
-    const { current, location } = await res.json('')
-
-    return { current, location }
+    const { current, location, forecast } = await res.json('')
+    return { current, location, forecast }
   } catch (err) {
     console.error(err.message)
     return { err }
