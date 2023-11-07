@@ -1,6 +1,6 @@
 # Weather-query
 
-demo: [https://react-cvbuilder.netlify.app/](https://react-cvbuilder.netlify.app/)
+demo: [https://weatherquery-react.netlify.app/](https://weatherquery-react.netlify.app/)
 
 Hey there this is me AZKA 🙋‍♂️
 
